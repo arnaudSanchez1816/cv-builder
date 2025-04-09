@@ -1,0 +1,13 @@
+.edit-panel {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 2rem 0 0 0;
+    gap: 3rem;
+}
+
+.edit-panel-sidebar > .edit-modes {
+    background-color: #fff;
+    border-radius: var(--default-border-radius);
+    padding: 1rem 1rem;
+    box-shadow: var(--default-box-shadow);
+}

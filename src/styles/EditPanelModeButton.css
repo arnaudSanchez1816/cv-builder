@@ -1,0 +1,30 @@
+.edit-panel-mode-btn {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    border: none;
+    border-radius: var(--default-border-radius);
+    padding: 0.5rem;
+    width: 100%;
+    background-color: inherit;
+    transition: background-color 0.15s;
+
+    > svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: #f9fafb;
+    }
+
+    &.active {
+        background-color: #eff0f2;
+    }
+}
+
+.edit-panel-mode-btn + .edit-panel-mode-btn {
+    margin-top: 1rem;
+}
