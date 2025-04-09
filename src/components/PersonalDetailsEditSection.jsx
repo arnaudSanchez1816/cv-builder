@@ -4,7 +4,7 @@ import "../styles/PersonalDetailsEditSection.css"
 function PersonalDetailsEditSection() {
     return (
         <section className="edit-personal-details rounded-large">
-            <button className="section-foldout rounded-large rounded-bottom-none">
+            <button className="section-foldout rounded-large rounded-bottom-none padding-medium">
                 <span className="section-foldout-title">
                     <Icon
                         className="section-foldout-icon"
@@ -17,30 +17,76 @@ function PersonalDetailsEditSection() {
                     icon="line-md:chevron-down"
                 ></Icon>
             </button>
-            <form>
-                <label htmlFor="full-name">
-                    Full name
-                    <input type="text" name="full-name" id="full-name" />
-                </label>
-                <label htmlFor="job-title">
-                    Job title <span>optional</span>
-                    <input type="text" name="job-title" id="job-title" />
-                </label>
-                <label htmlFor="email">
-                    Email <span>recommended</span>
-                    <input type="email" name="email" id="email" />
-                </label>
-                <label htmlFor="phone">
-                    Phone number <span>recommended</span>
-                    <input type="tel" name="phone" id="phone" />
-                </label>
-                <label htmlFor="address">
-                    Address <span>recommended</span>
-                    <input type="text" name="address" id="address" />
-                </label>
-
-                <button type="button">Cancel</button>
-                <button type="submit">Save</button>
+            <form className="edit-personal-details-form padding-medium">
+                <div className="edit-form-item">
+                    <label htmlFor="full-name">Full name</label>
+                    <input
+                        type="text"
+                        className="rounded-medium"
+                        name="full-name"
+                        id="full-name"
+                    />
+                </div>
+                <div className="edit-form-item">
+                    <label htmlFor="job-title">
+                        Job title{" "}
+                        <span className="text-grey-400 text-[0.8em]">
+                            optional
+                        </span>
+                    </label>
+                    <input
+                        type="text"
+                        className="rounded-medium"
+                        name="job-title"
+                        id="job-title"
+                    />
+                </div>
+                <div className="edit-form-item">
+                    <label htmlFor="email">
+                        Email{" "}
+                        <span className="text-grey-400 text-[0.8em]">
+                            recommended
+                        </span>
+                    </label>
+                    <input
+                        type="email"
+                        className="rounded-medium"
+                        name="email"
+                        id="email"
+                    />
+                </div>
+                <div className="edit-form-item">
+                    <label htmlFor="phone">
+                        Phone number{" "}
+                        <span className="text-grey-400 text-[0.8em]">
+                            recommended
+                        </span>
+                    </label>
+                    <input
+                        type="tel"
+                        className="rounded-medium"
+                        name="phone"
+                        id="phone"
+                    />
+                </div>
+                <div className="edit-form-item">
+                    <label htmlFor="address">
+                        Address{" "}
+                        <span className="text-grey-400 text-[0.8em]">
+                            recommended
+                        </span>
+                    </label>
+                    <input
+                        type="text"
+                        className="rounded-medium"
+                        name="address"
+                        id="address"
+                    />
+                </div>
+                <div className="edit-form-controls">
+                    <button type="button">Cancel</button>
+                    <button type="submit">Save</button>
+                </div>
             </form>
         </section>
     )
