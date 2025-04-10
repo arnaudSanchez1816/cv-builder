@@ -1,4 +1,17 @@
 .resume-preview {
     display: flex;
     justify-content: center;
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    padding: 2rem 0 2rem;
+}
+
+.resume-preview-content {
+    background-color: #fff;
+    width: 100%;
+
+    & h1 {
+        margin: 0;
+    }
 }

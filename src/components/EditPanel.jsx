@@ -3,6 +3,7 @@ import EducationDetailsEditSection from "./EducationDetailsEditSection"
 import PersonalDetailsEditSection from "./PersonalDetailsEditSection"
 import ProfessionalDetailsEditSection from "./ProfessionalDetailsEditSection"
 import "../styles/EditPanel.css"
+import { Icon } from "@iconify/react/dist/iconify.js"
 
 function EditPanel() {
     const onDetailsModeClicked = () => {}
@@ -12,7 +13,10 @@ function EditPanel() {
     return (
         <div className="edit-panel">
             <aside className="edit-panel-sidebar">
-                <div className="edit-modes">
+                <div className="edit-panel-sidebar-content">
+                    <div className="sidebar-app-logo">
+                        <Icon icon="academicons:cv-square" />
+                    </div>
                     <EditPanelModeButton
                         text="Details"
                         iconId="mage:file-2"

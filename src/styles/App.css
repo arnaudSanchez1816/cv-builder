@@ -1,9 +1,19 @@
 .app {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-template-areas: "Edit Preview";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "Edit"
+        "Preview";
     max-width: 100rem;
     min-height: 100vh;
     margin: auto;
+}
+
+@media (min-width: 1000px) {
+    .app {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: "Edit Preview";
+    }
 }

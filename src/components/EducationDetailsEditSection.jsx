@@ -1,5 +1,5 @@
 import EditSection from "./EditSection"
-import EditSectionFoldout from "./EditSectionFoldout"
+import "../styles/EducationDetailsEditSection.css"
 
 function EducationDetailsEditEntry({
     studyTitle,
@@ -9,12 +9,12 @@ function EducationDetailsEditEntry({
     endOfStudyDate,
 }) {
     return (
-        <li>
-            <div>
+        <li className="education-entry">
+            <div className="education-entry-reorder">
                 <button>Up</button>
                 <button>Down</button>
             </div>
-            <div>
+            <div className="education-entry-content">
                 <div>
                     <span>{studyTitle}</span>
                     <span>, {schoolName}</span>
@@ -28,7 +28,7 @@ function EducationDetailsEditEntry({
                     <span>{schoolLocation}</span>
                 </div>
             </div>
-            <button>Edit</button>
+            <button className="education-entry-edit">Edit</button>
         </li>
     )
 }
@@ -39,7 +39,7 @@ function EducationDetailsEditSection() {
             sectionTitle="Education"
             sectionIcon="mdi:education-outline"
         >
-            <ul>
+            <ul className="education-list">
                 <EducationDetailsEditEntry
                     studyTitle="Master Info"
                     schoolName="Fac Sciences Mtp"
@@ -62,7 +62,7 @@ function EducationDetailsEditSection() {
                     endOfStudyDate={new Date(2015, 1, 1)}
                 />
             </ul>
-            <button>Add</button>
+            <button className="education-list-add">Add</button>
         </EditSection>
     )
 }

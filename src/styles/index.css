@@ -6,6 +6,7 @@
     --color-grey-400: rgb(189 189 189 / 1);
     --color-black-op-60: rgba(0 0 0 / 0.6);
     --color-black-op-80: rgba(0 0 0 / 0.8);
+    --color-accent-blue: #0a3d62;
 }
 
 #root {

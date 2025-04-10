@@ -24,7 +24,3 @@
         background-color: #eff0f2;
     }
 }
-
-.edit-panel-mode-btn + .edit-panel-mode-btn {
-    margin-top: 1rem;
-}
