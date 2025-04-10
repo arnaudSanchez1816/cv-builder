@@ -1,8 +1,9 @@
 import ResumePreviewHeader from "./ResumePreviewHeader"
+import "../styles/ResumePreviewPanel.css"
 
 function ResumePreviewPanel() {
     return (
-        <div>
+        <div className="resume-preview">
             <ResumePreviewHeader
                 fullName="Arnaud Sanchez"
                 jobTitle="Dev Full Stack"

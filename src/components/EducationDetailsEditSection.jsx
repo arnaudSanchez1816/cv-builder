@@ -1,3 +1,6 @@
+import EditSection from "./EditSection"
+import EditSectionFoldout from "./EditSectionFoldout"
+
 function EducationDetailsEditEntry({
     studyTitle,
     schoolName,
@@ -32,8 +35,10 @@ function EducationDetailsEditEntry({
 
 function EducationDetailsEditSection() {
     return (
-        <section>
-            <h1>Education</h1>
+        <EditSection
+            sectionTitle="Education"
+            sectionIcon="mdi:education-outline"
+        >
             <ul>
                 <EducationDetailsEditEntry
                     studyTitle="Master Info"
@@ -58,7 +63,7 @@ function EducationDetailsEditSection() {
                 />
             </ul>
             <button>Add</button>
-        </section>
+        </EditSection>
     )
 }
 

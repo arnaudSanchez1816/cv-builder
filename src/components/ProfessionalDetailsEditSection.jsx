@@ -1,3 +1,5 @@
+import EditSection from "./EditSection"
+
 function ProfessionalDetailsEditEntry({
     jobTitle,
     companyName,
@@ -32,8 +34,10 @@ function ProfessionalDetailsEditEntry({
 
 function ProfessionalDetailsEditSection() {
     return (
-        <section>
-            <h1>Professional experience</h1>
+        <EditSection
+            sectionTitle="Professional experience"
+            sectionIcon="mdi:briefcase-outline"
+        >
             <ul>
                 <ProfessionalDetailsEditEntry
                     jobTitle="Gameplay programmer"
@@ -44,7 +48,7 @@ function ProfessionalDetailsEditSection() {
                 />
             </ul>
             <button>Add</button>
-        </section>
+        </EditSection>
     )
 }
 

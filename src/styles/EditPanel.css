@@ -10,4 +10,10 @@
     border-radius: var(--default-border-radius);
     padding: 1rem 1rem;
     box-shadow: var(--default-box-shadow);
+    flex-grow: 0;
+    min-width: 130px;
+}
+
+.edit-panel-content {
+    flex-grow: 1;
 }

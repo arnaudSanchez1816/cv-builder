@@ -25,7 +25,7 @@ function EditPanel() {
                     />
                 </div>
             </aside>
-            <div>
+            <div className="edit-panel-content">
                 <PersonalDetailsEditSection />
                 <EducationDetailsEditSection />
                 <ProfessionalDetailsEditSection />

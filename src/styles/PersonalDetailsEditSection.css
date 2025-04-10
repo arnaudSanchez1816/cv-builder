@@ -3,42 +3,6 @@
     background-color: #fff;
 }
 
-.section-foldout {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background-color: inherit;
-    border: none;
-
-    &:hover {
-        cursor: pointer;
-        color: var(--color-black-op-60);
-    }
-}
-
-.section-foldout > .section-foldout-title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    > .section-foldout-icon {
-        font-size: 2em;
-        margin-right: 1rem;
-    }
-
-    > h1 {
-        margin: 0;
-        display: inline;
-    }
-}
-
-.section-foldout > .section-foldout-chevron {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
 .edit-personal-details-form {
 }
 
