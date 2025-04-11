@@ -11,22 +11,27 @@ function EditPanel() {
     const onCustomizeModeClicked = () => {}
 
     return (
-        <div className="edit-panel">
+        <main className="edit-panel">
             <aside className="edit-panel-sidebar">
-                <div className="edit-panel-sidebar-content">
-                    <div className="sidebar-app-logo">
-                        <Icon icon="academicons:cv-square" />
+                <div className="sidebar-container">
+                    <div className="edit-panel-sidebar-content">
+                        <div className="sidebar-app-logo">
+                            <Icon icon="academicons:cv-square" />
+                        </div>
+                        <EditPanelModeButton
+                            text="Details"
+                            iconId="mage:file-2"
+                            onClick={onDetailsModeClicked}
+                        />
+                        <EditPanelModeButton
+                            text="Customize"
+                            iconId="nimbus:tools"
+                            onClick={onCustomizeModeClicked}
+                        />
                     </div>
-                    <EditPanelModeButton
-                        text="Details"
-                        iconId="mage:file-2"
-                        onClick={onDetailsModeClicked}
-                    />
-                    <EditPanelModeButton
-                        text="Customize"
-                        iconId="nimbus:tools"
-                        onClick={onCustomizeModeClicked}
-                    />
+                    <button className="open-preview-modal">
+                        <Icon icon="mdi:eye-outline" />
+                    </button>
                 </div>
             </aside>
             <div className="edit-panel-content">
@@ -34,7 +39,7 @@ function EditPanel() {
                 <EducationDetailsEditSection />
                 <ProfessionalDetailsEditSection />
             </div>
-        </div>
+        </main>
     )
 }
 

@@ -1,19 +1,35 @@
 .resume-preview {
-    display: flex;
-    justify-content: center;
+    width: 100%;
     position: sticky;
     top: 0;
     max-height: 100vh;
-    padding: 2rem 0 2rem;
+    padding: 2rem;
+}
+
+.resume-preview-scroll-container {
     overflow: scroll;
+    scroll-behavior: smooth;
+    height: 100%;
 }
 
 .resume-preview-content {
     background-color: #fff;
     width: 100%;
     height: 200%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: minmax(200px, min-content) auto;
+    grid-template-areas:
+        "header"
+        "content";
+}
 
-    & h1 {
-        margin: 0;
+.app > .resume-preview {
+    display: none;
+}
+
+@media (min-width: 1000px) {
+    .app > .resume-preview {
+        display: block;
     }
 }

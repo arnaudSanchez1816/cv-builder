@@ -1,10 +1,8 @@
 .app {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-        "Edit"
-        "Preview";
+    grid-template-rows: 1fr;
+    grid-template-areas: "Edit";
     max-width: 100rem;
     min-height: 100vh;
     margin: auto;

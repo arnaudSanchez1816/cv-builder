@@ -15,7 +15,7 @@ function EducationDetailsEditSection() {
                 dataSource={data}
                 itemRender={(item) => (
                     <>
-                        <div className="color-accent-blue">
+                        <div className="color-primary-blue">
                             <span className="bold">{item.studyTitle}</span>
                             <span className="italic">, {item.schoolName}</span>
                         </div>

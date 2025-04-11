@@ -14,7 +14,10 @@
     --color-black-op-80: rgba(0 0 0 / 0.8);
 
     --color-blue-grey-600: rgb(84, 110, 122);
-    --color-accent-blue: #0a3d62;
+    --color-primary-dark: #0c2461;
+    --color-primary-blue: #0a3d62;
+    --color-primary-blue-lighter: #4a69bd;
+    --color-primary-blue-light: #6a89cc;
 }
 
 #root {
@@ -66,6 +69,30 @@
     font-size: 0.9rem;
 }
 
-.color-accent-blue {
-    color: var(--color-accent-blue);
+.color-primary-blue {
+    color: var(--color-primary-blue);
+}
+
+.text-\[20px\] {
+    font-size: 20px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.align-i-center {
+    align-items: center;
+}
+
+.mr-\[0\.5rem\] {
+    margin-right: 0.5rem;
 }
