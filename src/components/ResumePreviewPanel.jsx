@@ -1,16 +1,17 @@
 import ResumePreviewHeader from "./ResumePreviewHeader"
 import "../styles/ResumePreviewPanel.css"
+import { exampleResume } from "../data"
 
 function ResumePreviewPanel() {
     return (
         <div className="resume-preview">
             <div className="resume-preview-content">
                 <ResumePreviewHeader
-                    fullName="Arnaud Sanchez"
-                    jobTitle="Dev Full Stack"
-                    email="asanchez@gmail.com"
-                    phone="0102030405"
-                    address="Montpellier, France"
+                    fullName={exampleResume.fullname}
+                    jobTitle={exampleResume.jobTitle}
+                    email={exampleResume.email}
+                    phone={exampleResume.phone}
+                    address={exampleResume.address}
                 />
             </div>
         </div>

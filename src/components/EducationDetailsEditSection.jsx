@@ -1,35 +1,11 @@
 import EditSection from "./EditSection"
 import "../styles/EducationDetailsEditSection.css"
 import DetailsEditList from "./DetailsEditList"
-
-const data = [
-    {
-        id: 0,
-        studyTitle: "Master Info",
-        schoolName: "Fac Sciences Mtp",
-        schoolLocation: "Montpellier, France",
-        startOfStudyDate: new Date(2016, 1, 1),
-        endOfStudyDate: new Date(2018, 1, 1),
-    },
-    {
-        id: 1,
-        studyTitle: "Licence Info",
-        schoolName: "Fac Aix Montperrin",
-        schoolLocation: "Aix-en-Provence, France",
-        startOfStudyDate: new Date(2015, 1, 1),
-        endOfStudyDate: new Date(2016, 1, 1),
-    },
-    {
-        id: 2,
-        studyTitle: "DUT",
-        schoolName: "IUT Aix",
-        schoolLocation: "Aix-en-Provence, France",
-        startOfStudyDate: new Date(2013, 1, 1),
-        endOfStudyDate: new Date(2015, 1, 1),
-    },
-]
+import { exampleResume } from "../data"
 
 function EducationDetailsEditSection() {
+    const data = exampleResume.education
+
     return (
         <EditSection
             sectionTitle="Education"

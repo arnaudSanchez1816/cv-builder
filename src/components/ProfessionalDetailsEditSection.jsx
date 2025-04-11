@@ -1,18 +1,10 @@
 import DetailsEditList from "./DetailsEditList"
 import EditSection from "./EditSection"
-
-const data = [
-    {
-        id: 0,
-        jobTitle: "Gameplay programmer",
-        companyName: "Smart Tale Games",
-        location: "Montpellier, France",
-        startDate: new Date(2018, 1, 1),
-        endDate: new Date(2024, 1, 1),
-    },
-]
+import { exampleResume } from "../data"
 
 function ProfessionalDetailsEditSection() {
+    const data = exampleResume.professional
+
     return (
         <EditSection
             sectionTitle="Professional experience"
