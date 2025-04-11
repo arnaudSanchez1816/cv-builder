@@ -6,7 +6,7 @@ const CHEVRON_UP_ICON = "line-md:chevron"
 
 function EditSectionFoldout({ sectionTitle, sectionIcon }) {
     return (
-        <button className="section-foldout rounded-large rounded-bottom-none padding-medium">
+        <button className="section-foldout rounded-large rounded-bottom-none">
             <span className="section-foldout-title">
                 <Icon
                     className="section-foldout-icon"

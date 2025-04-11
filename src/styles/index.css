@@ -2,10 +2,18 @@
     --default-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
     --default-border-radius: 15px;
 
+    --color-background: #f3f1ec;
     --color-black: rgba(0 0 0);
-    --color-grey-400: rgb(189 189 189 / 1);
+    --color-grey-200: rgba(238 238 238 / 1);
+    --color-grey-200: rgba(224 224 224 / 1);
+    --color-grey-400: rgba(189 189 189 / 1);
+    --color-grey-600: rgba(117 117 117 / 1);
+    --color-grey-800: rgba(66 66 66 / 1);
+    --color-grey-900: rgba(33 33 33 / 1);
     --color-black-op-60: rgba(0 0 0 / 0.6);
     --color-black-op-80: rgba(0 0 0 / 0.8);
+
+    --color-blue-grey-600: rgb(84, 110, 122);
     --color-accent-blue: #0a3d62;
 }
 
@@ -40,4 +48,24 @@
 
 .text-\[0\.8em\] {
     font-size: 0.8em;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.color-grey-800 {
+    color: var(--color-grey-800);
+}
+
+.text-\[0\.9rem\] {
+    font-size: 0.9rem;
+}
+
+.color-accent-blue {
+    color: var(--color-accent-blue);
 }

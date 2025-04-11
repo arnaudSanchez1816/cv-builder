@@ -1,4 +1,6 @@
 .edit-section {
     box-shadow: var(--default-box-shadow);
     background-color: #fff;
+
+    --section-side-padding: 1.5rem;
 }
