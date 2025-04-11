@@ -1,38 +1,6 @@
 import DetailsEditList from "./DetailsEditList"
 import EditSection from "./EditSection"
 
-function ProfessionalDetailsEditEntry({
-    jobTitle,
-    companyName,
-    location,
-    startDate,
-    endDate,
-    description = "",
-}) {
-    return (
-        <li>
-            <div>
-                <button>Up</button>
-                <button>Down</button>
-            </div>
-            <div>
-                <div>
-                    <span>{jobTitle}</span>
-                    <span>, {companyName}</span>
-                </div>
-                <div>
-                    <span>
-                        {startDate.getFullYear()}-{endDate.getFullYear()}
-                    </span>
-                    <span> | </span>
-                    <span>{location}</span>
-                </div>
-            </div>
-            <button>Edit</button>
-        </li>
-    )
-}
-
 const data = [
     {
         id: 0,
