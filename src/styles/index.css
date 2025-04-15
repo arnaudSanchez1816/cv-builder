@@ -93,6 +93,18 @@
     align-items: center;
 }
 
+.align-self-start {
+    align-self: flex-start;
+}
+
 .mr-\[0\.5rem\] {
     margin-right: 0.5rem;
+}
+
+.ml-\[0\.5rem\] {
+    margin-left: 0.5rem;
+}
+
+.mr-\[auto\] {
+    margin-right: auto;
 }

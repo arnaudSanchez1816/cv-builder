@@ -63,7 +63,7 @@
 
     & > .list-add {
         border: 1px solid var(--color-grey-200);
-        padding: 4px var(--section-side-padding);
+        padding: 4px 1.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
