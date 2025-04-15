@@ -1,43 +1,5 @@
 .edit-panel {
-    display: flex;
-    flex-flow: row nowrap;
-    padding: 2rem 2rem;
-    gap: 2rem;
-}
-
-.sidebar-container {
-    position: sticky;
-    top: 2rem;
-}
-
-.edit-panel-sidebar-content {
-    background-color: #fff;
-    border-radius: var(--default-border-radius);
-    padding: 1rem 1rem;
-    box-shadow: var(--default-box-shadow);
-    min-width: 130px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-.sidebar-app-logo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover > svg {
-        transform: rotateZ(-15deg);
-    }
-
-    > svg {
-        width: 4rem;
-        height: 4rem;
-        color: var(--color-primary-blue);
-        transition: transform 0.4s;
-    }
+    padding: 2rem 0;
 }
 
 .edit-panel-content {
@@ -46,40 +8,4 @@
     flex-flow: column nowrap;
     gap: 1.5rem;
     width: 100%;
-}
-
-.open-preview-modal {
-    border: none;
-    padding: 0;
-    display: block;
-    font-size: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin: 1.5rem auto;
-    width: 64px;
-    height: 64px;
-
-    background-color: var(--color-primary-blue);
-    color: #fff;
-    cursor: pointer;
-
-    &:hover {
-        background-color: var(--color-primary-blue-lighter);
-    }
-
-    &:active {
-        background-color: var(--color-primary-blue-light);
-    }
-}
-
-@media (min-width: 1000px) {
-    .edit-panel {
-        max-width: none;
-    }
-
-    .open-preview-modal {
-        display: none;
-    }
 }

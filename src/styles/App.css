@@ -1,17 +1,43 @@
 .app {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: min-content 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "Edit";
-    max-width: 100rem;
+    grid-template-areas: "Sidebar Edit";
     min-height: 100vh;
     margin: auto;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    justify-content: center;
 }
 
 @media (min-width: 1000px) {
     .app {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: min-content max(430px) auto;
         grid-template-rows: 1fr;
-        grid-template-areas: "Edit Preview";
+        grid-template-areas: "Sidebar Edit Preview";
+    }
+}
+
+@media (min-width: 1200px) {
+    .app {
+        grid-template-columns: min-content max(500px) auto;
+        grid-template-rows: 1fr;
+        grid-template-areas: "Sidebar Edit Preview";
+    }
+}
+
+@media (min-width: 1400px) {
+    .app {
+        grid-template-columns: min-content max(600px) auto;
+        grid-template-rows: 1fr;
+        grid-template-areas: "Sidebar Edit Preview";
+    }
+}
+
+@media (min-width: 1500px) {
+    .app {
+        grid-template-columns: min-content max(700px) auto;
+        grid-template-rows: 1fr;
+        grid-template-areas: "Sidebar Edit Preview";
     }
 }

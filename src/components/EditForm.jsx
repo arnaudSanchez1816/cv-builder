@@ -25,7 +25,10 @@ function EditForm({ children, onSubmit, onCancel = null, onDelete = null }) {
                     </button>
                 )}
                 {onSubmit && (
-                    <button type="submit" className="edit-form-submit">
+                    <button
+                        type="submit"
+                        className="edit-form-submit primary-color-button"
+                    >
                         <Icon icon="mdi:check" />
                         <span>|</span>
                         <span>Save</span>

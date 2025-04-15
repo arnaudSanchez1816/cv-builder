@@ -108,3 +108,16 @@
 .mr-\[auto\] {
     margin-right: auto;
 }
+
+.primary-color-button {
+    background-color: var(--color-primary-blue);
+    color: #fff;
+
+    &:hover {
+        background-color: var(--color-primary-blue-lighter);
+    }
+
+    &:active {
+        background-color: var(--color-primary-blue-light);
+    }
+}
