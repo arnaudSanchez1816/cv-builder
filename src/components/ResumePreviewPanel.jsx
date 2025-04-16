@@ -1,9 +1,12 @@
-import ResumePreviewHeader from "./ResumePreviewHeader"
 import "../styles/ResumePreviewPanel.css"
-import { exampleResume } from "../data"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+import { createPortal } from "react-dom"
+import ResumePreview from "./ResumePreview"
+import Modal from "./Modal"
 
 function ResumePreviewPanel() {
+    const [showResumeModal, setShowResumeModal] = useState(false)
+
     const resumePreviewRef = useRef(null)
     const pageRef = useRef(null)
     const scalerRef = useRef(null)
@@ -63,22 +66,36 @@ function ResumePreviewPanel() {
         }
     })
 
+    const onPreviewClick = () => {
+        setShowResumeModal(true)
+    }
+
+    const onResumeModalClose = () => {
+        setShowResumeModal(false)
+    }
+
     return (
-        <div className="resume-preview" ref={resumePreviewRef}>
-            <div ref={resizableRef}>
-                <div style={{ transformOrigin: "top left" }} ref={scalerRef}>
-                    <div className="resume-page" ref={pageRef}>
-                        <ResumePreviewHeader
-                            fullName={exampleResume.fullname}
-                            jobTitle={exampleResume.jobTitle}
-                            email={exampleResume.email}
-                            phone={exampleResume.phone}
-                            address={exampleResume.address}
-                        />
+        <>
+            <div
+                className="resume-preview"
+                ref={resumePreviewRef}
+                onClick={onPreviewClick}
+            >
+                <div ref={resizableRef}>
+                    <div
+                        style={{ transformOrigin: "top left" }}
+                        ref={scalerRef}
+                    >
+                        <ResumePreview ref={pageRef} />
                     </div>
                 </div>
             </div>
-        </div>
+            {showResumeModal && (
+                <Modal isOpen={showResumeModal} onClose={onResumeModalClose}>
+                    <span>Hello modal !</span>
+                </Modal>
+            )}
+        </>
     )
 }
 

@@ -7,21 +7,6 @@
     scroll-behavior: smooth;
 }
 
-.resume-page {
-    background-color: #fff;
-    width: 21cm;
-    max-width: 21cm;
-    max-height: 29.7cm;
-    height: 29.7cm;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: minmax(200px, min-content) auto;
-    grid-template-areas:
-        "header"
-        "content";
-    overflow: hidden;
-}
-
 .app > .resume-preview {
     display: none;
 }
