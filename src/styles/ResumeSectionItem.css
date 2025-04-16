@@ -1,0 +1,19 @@
+.resume-section-item {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: auto;
+}
+
+.resume-section-item > .group {
+    min-width: 25%;
+}
+
+.resume-section-item .title,
+.resume-section-item .sub-title {
+    margin-bottom: 2px;
+}
+
+.resume-section-item .description {
+    white-space: pre-wrap;
+    margin: 4px 0 0;
+}

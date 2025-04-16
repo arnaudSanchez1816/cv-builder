@@ -1,0 +1,16 @@
+.resume-section {
+    padding: 0 0.6in;
+}
+
+.resume-section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.resume-section > .resume-section-title {
+    text-transform: uppercase;
+    color: var(--color-primary-blue);
+    font-weight: bold;
+    border-bottom: 2px solid var(--color-primary-blue);
+}

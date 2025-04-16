@@ -76,6 +76,9 @@
 .text-\[20px\] {
     font-size: 20px;
 }
+.pr-\[1rem\] {
+    padding-right: 1rem;
+}
 
 .flex {
     display: flex;
