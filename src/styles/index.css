@@ -121,3 +121,16 @@
         background-color: var(--color-primary-blue-light);
     }
 }
+
+.generic-button {
+    border: 1px solid var(--color-grey-200);
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 4px 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}

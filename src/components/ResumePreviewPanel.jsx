@@ -1,6 +1,6 @@
 import "../styles/ResumePreviewPanel.css"
 import { useEffect, useRef, useState } from "react"
-import { createPortal } from "react-dom"
+import { Icon } from "@iconify/react/dist/iconify.js"
 import ResumePreview from "./ResumePreview"
 import Modal from "./Modal"
 
@@ -76,12 +76,12 @@ function ResumePreviewPanel() {
 
     return (
         <>
-            <div
-                className="resume-preview"
-                ref={resumePreviewRef}
-                onClick={onPreviewClick}
-            >
-                <div ref={resizableRef}>
+            <div className="resume-preview" ref={resumePreviewRef}>
+                <div
+                    ref={resizableRef}
+                    onClick={onPreviewClick}
+                    style={{ cursor: "zoom-in" }}
+                >
                     <div
                         style={{ transformOrigin: "top left" }}
                         ref={scalerRef}
@@ -91,8 +91,22 @@ function ResumePreviewPanel() {
                 </div>
             </div>
             {showResumeModal && (
-                <Modal isOpen={showResumeModal} onClose={onResumeModalClose}>
-                    <span>Hello modal !</span>
+                <Modal
+                    isOpen={showResumeModal}
+                    onClose={onResumeModalClose}
+                    className="resume-modal"
+                >
+                    <div className="resume-modal-overflow">
+                        <ResumePreview />
+                    </div>
+                    <button
+                        autoFocus
+                        type="button"
+                        class="resume-modal-close"
+                        onClick={onResumeModalClose}
+                    >
+                        <Icon icon="mdi:close" />
+                    </button>
                 </Modal>
             )}
         </>

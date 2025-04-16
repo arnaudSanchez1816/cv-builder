@@ -11,6 +11,29 @@
     display: none;
 }
 
+.resume-modal {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.resume-modal-overflow {
+    overflow: auto;
+}
+
+.resume-modal-close {
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    font-size: 32px;
+}
+
 @media (min-width: 1000px) {
     .app > .resume-preview {
         display: block;

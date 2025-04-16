@@ -10,7 +10,7 @@ function EditForm({ children, onSubmit, onCancel = null, onDelete = null }) {
                     <button
                         type="button"
                         onClick={onDelete}
-                        className="edit-form-button mr-[auto]"
+                        className="edit-form-button mr-[auto] generic-button"
                     >
                         Delete
                     </button>
@@ -19,7 +19,7 @@ function EditForm({ children, onSubmit, onCancel = null, onDelete = null }) {
                     <button
                         type="button"
                         onClick={onCancel}
-                        className="edit-form-button"
+                        className="edit-form-button generic-button"
                     >
                         Cancel
                     </button>
