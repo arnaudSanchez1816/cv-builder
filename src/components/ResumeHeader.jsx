@@ -1,12 +1,12 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
-import "../styles/ResumePreviewHeader.css"
+import "../styles/ResumeHeader.css"
 
-function ResumePreviewHeader({ fullName, jobTitle, email, phone, address }) {
+function ResumeHeader({ fullName, jobTitle, email, phone, address }) {
     return (
-        <div className="preview-header">
+        <div className="resume-header">
             <h1 className="fullname">{fullName}</h1>
             <h2 className="job-title italic">{jobTitle}</h2>
-            <div className="preview-header-details">
+            <div className="resume-header-details">
                 <span className="email flex flex-row align-i-center">
                     <Icon
                         className="text-[20px] mr-[0.5rem]"
@@ -35,4 +35,4 @@ function ResumePreviewHeader({ fullName, jobTitle, email, phone, address }) {
     )
 }
 
-export default ResumePreviewHeader
+export default ResumeHeader

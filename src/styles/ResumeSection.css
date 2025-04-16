@@ -10,7 +10,7 @@
 
 .resume-section > .resume-section-title {
     text-transform: uppercase;
-    color: var(--color-primary-blue);
+    color: var(--resume-accent-color);
     font-weight: bold;
-    border-bottom: 2px solid var(--color-primary-blue);
+    border-bottom: 2px solid var(--resume-accent-color);
 }

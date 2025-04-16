@@ -1,4 +1,7 @@
 .resume-page {
+    --resume-accent-color: #218c74;
+    --resume-header-color: #fff;
+
     background-color: #fff;
     width: 21cm;
     max-width: 21cm;

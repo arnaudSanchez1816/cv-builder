@@ -1,5 +1,5 @@
 import "../styles/ResumePreview.css"
-import ResumePreviewHeader from "./ResumePreviewHeader"
+import ResumeHeader from "./ResumeHeader"
 import { exampleResume } from "../data"
 import ResumeSectionItem from "./ResumeSectionItem"
 import ResumeSection from "./ResumeSection"
@@ -94,7 +94,7 @@ function ResumePreview({ ref }) {
 
     return (
         <div className="resume-page" ref={ref}>
-            <ResumePreviewHeader
+            <ResumeHeader
                 fullName={exampleResume.fullname}
                 jobTitle={exampleResume.jobTitle}
                 email={exampleResume.email}
