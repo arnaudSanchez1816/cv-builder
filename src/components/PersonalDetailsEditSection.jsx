@@ -56,14 +56,14 @@ function PersonalDetailsPreviewSection({ onEditClicked }) {
                 <p className="job-title">{resumeData.jobTitle}</p>
             </div>
             <div className="group">
-                <p className="flex align-item-center">
+                <p className="flex align-i-center">
                     <Icon
                         className="text-[20px] mr-[0.5rem]"
                         icon="ic:round-email"
                     />
                     {resumeData.email}
                 </p>
-                <p className="flex align-item-center">
+                <p className="flex align-i-center">
                     <Icon
                         className="text-[20px] mr-[0.5rem]"
                         icon="ic:round-phone"
@@ -72,7 +72,7 @@ function PersonalDetailsPreviewSection({ onEditClicked }) {
                     />
                     {resumeData.phone}
                 </p>
-                <p className="flex align-item-center">
+                <p className="flex align-i-center">
                     <Icon
                         className="text-[20px] mr-[0.5rem]"
                         icon="mdi:location"
