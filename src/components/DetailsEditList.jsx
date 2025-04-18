@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
 import "../styles/DetailsEditList.css"
+import EditButton from "./EditButton"
 
 function DetailsEditList({ dataSource, itemRender }) {
     return (
@@ -16,9 +17,7 @@ function DetailsEditList({ dataSource, itemRender }) {
                             </button>
                         </div>
                         <div className="item-content">{itemRender(item)}</div>
-                        <button className="item-edit">
-                            <Icon icon="mdi:edit-outline" />
-                        </button>
+                        <EditButton className="align-self-center" />
                     </li>
                 ))}
             </ul>

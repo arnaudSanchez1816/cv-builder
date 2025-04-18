@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import "../styles/Modal.css"
+import { mergeClassNames } from "../utils"
 
 function Modal({ isOpen = false, onClose, children, className }) {
     const modalRef = useRef(null)
@@ -34,15 +35,10 @@ function Modal({ isOpen = false, onClose, children, className }) {
         return () => modalElement?.removeEventListener("click", onBackdropClick)
     })
 
-    const dialogClasses = ["dialog-modal"]
-    dialogClasses.push(className.split(" "))
+    const dialogClass = mergeClassNames("dialog-modal", className)
 
     return (
-        <dialog
-            ref={modalRef}
-            onCancel={onClose}
-            className={dialogClasses.join(" ")}
-        >
+        <dialog ref={modalRef} onCancel={onClose} className={dialogClass}>
             {children}
         </dialog>
     )

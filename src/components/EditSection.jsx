@@ -1,13 +1,22 @@
 import "../styles/EditSection.css"
+import EditButton from "./EditButton"
 import EditSectionFoldout from "./EditSectionFoldout"
 
-function EditSection({ sectionTitle, sectionIcon, children }) {
+function EditSection({
+    sectionTitle,
+    sectionIcon,
+    useFoldout = true,
+    children,
+}) {
     return (
         <section className="edit-section rounded-large">
-            <EditSectionFoldout
-                sectionTitle={sectionTitle}
-                sectionIcon={sectionIcon}
-            />
+            {useFoldout && (
+                <EditSectionFoldout
+                    sectionTitle={sectionTitle}
+                    sectionIcon={sectionIcon}
+                />
+            )}
+
             {children}
         </section>
     )

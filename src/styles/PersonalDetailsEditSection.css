@@ -1,0 +1,35 @@
+.personal-section-content {
+    padding: 2rem;
+    position: relative;
+}
+
+.personal-section-content p {
+    margin: 0;
+}
+
+.personal-section-content .fullname {
+    font-weight: bold;
+    color: var(--color-primary-blue);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.personal-section-content .job-title {
+    font-size: 1.25rem;
+    color: var(--color-grey-800);
+}
+
+.personal-section-content > .group:last-of-type {
+    margin-top: 1rem;
+    color: var(--color-grey-800);
+
+    & > p + p {
+        margin-top: 0.5rem;
+    }
+}
+
+.personal-section-content > .edit-button {
+    position: absolute;
+    top: calc(2rem - calc(var(--edit-button-height) / 2));
+    right: calc(2rem - calc(var(--edit-button-width) / 2));
+}

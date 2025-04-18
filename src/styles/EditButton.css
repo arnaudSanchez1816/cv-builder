@@ -1,0 +1,25 @@
+.edit-button {
+    --edit-button-width: 32px;
+    --edit-button-height: 32px;
+
+    border: none;
+    background-color: var(--color-primary-blue);
+    font-size: 20px;
+    padding: 0;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 50%;
+    width: var(--edit-button-width);
+    height: var(--edit-button-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: var(--color-primary-blue-lighter);
+    }
+
+    &:active {
+        background-color: var(--color-primary-blue-light);
+    }
+}
