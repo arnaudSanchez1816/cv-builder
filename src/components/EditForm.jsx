@@ -3,7 +3,7 @@ import "../styles/EditForm.css"
 
 function EditForm({ children, onSubmit, onCancel = null, onDelete = null }) {
     return (
-        <form className="edit-form padding-medium" onSubmit={onSubmit}>
+        <form className="edit-form" onSubmit={onSubmit}>
             {children}
             <div className="edit-form-controls">
                 {onDelete && (

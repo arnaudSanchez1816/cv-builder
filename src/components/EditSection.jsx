@@ -1,23 +1,42 @@
+import { useState } from "react"
 import "../styles/EditSection.css"
-import EditButton from "./EditButton"
-import EditSectionFoldout from "./EditSectionFoldout"
+import EditSectionHeader from "./EditSectionHeader"
+import { mergeClassNames } from "../utils"
+
+const EditSectionOptions = {
+    showHeader: true,
+    headerFoldable: true,
+}
 
 function EditSection({
     sectionTitle,
     sectionIcon,
-    useFoldout = true,
+    options = EditSectionOptions,
     children,
 }) {
+    options = { ...EditSectionOptions, ...options }
+
+    const [isFolded, setIsFolded] = useState(false)
+
+    const useFoldout = options.showHeader && options.headerFoldable
+
+    let contentClass = "edit-section-content"
+    if (useFoldout && isFolded) {
+        contentClass = mergeClassNames(contentClass, "display-none")
+    }
+
     return (
         <section className="edit-section rounded-large">
-            {useFoldout && (
-                <EditSectionFoldout
+            {options.showHeader && (
+                <EditSectionHeader
                     sectionTitle={sectionTitle}
                     sectionIcon={sectionIcon}
+                    foldable={options.headerFoldable}
+                    onFoldoutClicked={() => setIsFolded(!isFolded)}
+                    isFolded={isFolded}
                 />
             )}
-
-            {children}
+            <div className={contentClass}>{children}</div>
         </section>
     )
 }

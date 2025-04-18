@@ -2,5 +2,9 @@
     box-shadow: var(--default-box-shadow);
     background-color: #fff;
 
-    --section-side-padding: 1.5rem;
+    padding: 1.5rem;
+}
+
+.edit-section > .edit-section-header + .edit-section-content {
+    margin-top: 1.5rem;
 }
