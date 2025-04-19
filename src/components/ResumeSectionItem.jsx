@@ -12,9 +12,9 @@ function ResumeSectionItem({
         <div className="resume-section-item">
             <div className="group pr-[1rem]">
                 <div>
-                    {startDate && startDate.getFullYear()}
+                    {startDate && startDate}
                     {endDate && " - "}
-                    {endDate && endDate.getFullYear()}
+                    {endDate && endDate}
                 </div>
                 <div>{location}</div>
             </div>

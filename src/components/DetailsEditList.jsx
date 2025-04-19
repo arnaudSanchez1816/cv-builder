@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react/dist/iconify.js"
 import "../styles/DetailsEditList.css"
 import EditButton from "./EditButton"
 
-function DetailsEditList({ dataSource, itemRender }) {
+function DetailsEditList({ dataSource, itemRender, onItemEdited }) {
     return (
         <>
             <ul className="details-edit-list">
@@ -17,7 +17,12 @@ function DetailsEditList({ dataSource, itemRender }) {
                             </button>
                         </div>
                         <div className="item-content">{itemRender(item)}</div>
-                        <EditButton className="align-self-center" />
+                        <EditButton
+                            className="align-self-center"
+                            onClick={() => {
+                                onItemEdited(item)
+                            }}
+                        />
                     </li>
                 ))}
             </ul>

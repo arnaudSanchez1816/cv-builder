@@ -1,6 +1,88 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
 import "../styles/EditForm.css"
 
+const EditFormInputDefaultOptions = {
+    recommended: false,
+    type: "text",
+    htmlName: "",
+}
+
+function EditFormInput({
+    id,
+    value,
+    label,
+    options = EditFormInputDefaultOptions,
+}) {
+    options = { ...EditFormInputDefaultOptions, ...options }
+
+    let labelElement = null
+    if (label) {
+        labelElement = (
+            <label htmlFor={id}>
+                {label}
+                {options.recommended && (
+                    <span className="ml-[0.5rem] text-grey-400 text-[0.8em]">
+                        recommended
+                    </span>
+                )}
+            </label>
+        )
+    }
+
+    return (
+        <div className="edit-form-item">
+            {labelElement}
+            <input
+                id={id}
+                name={options.htmlName ? options.htmlName : id}
+                type={options.type}
+                value={value}
+                className="rounded-medium"
+            />
+        </div>
+    )
+}
+
+const EditFormTextAreaDefaultOptions = {
+    recommended: false,
+    inputName: "",
+}
+
+function EditFormTextArea({
+    id,
+    value,
+    label,
+    options = EditFormTextAreaDefaultOptions,
+}) {
+    options = { ...EditFormTextAreaDefaultOptions, ...options }
+
+    let labelElement = null
+    if (label) {
+        labelElement = (
+            <label htmlFor={id}>
+                {label}
+                {options.recommended && (
+                    <span className="ml-[0.5rem] text-grey-400 text-[0.8em]">
+                        recommended
+                    </span>
+                )}
+            </label>
+        )
+    }
+
+    return (
+        <div className="edit-form-item">
+            {labelElement}
+            <textarea
+                id={id}
+                name={options.htmlName ? options.htmlName : id}
+                value={value}
+                className="rounded-medium"
+            />
+        </div>
+    )
+}
+
 function EditForm({ children, onSubmit, onCancel = null, onDelete = null }) {
     return (
         <form className="edit-form" onSubmit={onSubmit}>
@@ -39,4 +121,4 @@ function EditForm({ children, onSubmit, onCancel = null, onDelete = null }) {
     )
 }
 
-export default EditForm
+export { EditForm, EditFormTextArea, EditFormInput }

@@ -6,6 +6,7 @@ import { mergeClassNames } from "../utils"
 const EditSectionOptions = {
     showHeader: true,
     headerFoldable: true,
+    isFolded: true,
 }
 
 function EditSection({
@@ -16,7 +17,7 @@ function EditSection({
 }) {
     options = { ...EditSectionOptions, ...options }
 
-    const [isFolded, setIsFolded] = useState(false)
+    const [isFolded, setIsFolded] = useState(options.isFolded)
 
     const useFoldout = options.showHeader && options.headerFoldable
 
