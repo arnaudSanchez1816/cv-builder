@@ -1,8 +1,9 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
 import EditPanelModeButton from "./EditPanelModeButton"
 import "../styles/Sidebar.css"
+import { MODE_CUSTOMIZE, MODE_EDIT } from "../navigation"
 
-function Sidebar({ onDetailsModeClicked, onCustomizeModeClicked }) {
+function Sidebar({ activeMode, onDetailsModeClicked, onCustomizeModeClicked }) {
     return (
         <aside className="sidebar">
             <div className="sidebar-container">
@@ -14,11 +15,13 @@ function Sidebar({ onDetailsModeClicked, onCustomizeModeClicked }) {
                         text="Details"
                         iconId="mage:file-2"
                         onClick={onDetailsModeClicked}
+                        isActive={activeMode === MODE_EDIT}
                     />
                     <EditPanelModeButton
                         text="Customize"
                         iconId="nimbus:tools"
                         onClick={onCustomizeModeClicked}
+                        isActive={activeMode === MODE_CUSTOMIZE}
                     />
                 </div>
                 <button className="open-preview-modal primary-color-button">
