@@ -3,6 +3,8 @@ import EditSection from "./EditSection"
 import { EditForm, EditFormInput } from "./EditForm"
 import { useContext, useState } from "react"
 import { ResumeContext } from "../contexts/ResumeContext"
+import { createResumeProfessionalEntry } from "../data"
+import { getNextId } from "../utils"
 
 const sectionIcon = "mdi:briefcase-outline"
 
@@ -119,6 +121,18 @@ function ProfessionalSection({ onEdit, onEditDone }) {
         )
     }
 
+    const onItemOrderChanged = (item, newIndex) => {
+        const updatedData = data.filter((element) => element.id !== item.id)
+        updatedData.splice(newIndex, 0, item)
+        setResume({ ...resume, professional: updatedData })
+    }
+
+    const onItemAdded = () => {
+        const newId = getNextId(data)
+        const newEntry = createResumeProfessionalEntry(newId)
+        setResume({ ...resume, professional: [...data, newEntry] })
+    }
+
     return (
         <EditSection
             sectionTitle="Professional experience"
@@ -142,6 +156,8 @@ function ProfessionalSection({ onEdit, onEditDone }) {
                     </>
                 )}
                 onItemEdited={onItemEdit}
+                onItemAdded={onItemAdded}
+                onItemOrderChanged={onItemOrderChanged}
             />
         </EditSection>
     )

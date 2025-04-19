@@ -3,6 +3,8 @@ import EditList from "./EditList"
 import { EditForm, EditFormInput } from "./EditForm"
 import { useContext, useState } from "react"
 import { ResumeContext } from "../contexts/ResumeContext"
+import { createResumeEducationEntry } from "../data"
+import { getNextId } from "../utils"
 
 const sectionIcon = "mdi:education-outline"
 
@@ -113,8 +115,11 @@ function EducationSection({ onEdit, onEditDone }) {
         }
 
         const onEntryDelete = () => {
+            const updatedData = data.filter((element) => element.id !== item.id)
+            setResume({ ...resume, education: updatedData })
             onEditDone()
         }
+
         onEdit(
             <EducationEditEntrySection
                 entry={item}
@@ -123,6 +128,18 @@ function EducationSection({ onEdit, onEditDone }) {
                 onDelete={onEntryDelete}
             />
         )
+    }
+
+    const onItemOrderChanged = (item, newIndex) => {
+        const updatedData = data.filter((element) => element.id !== item.id)
+        updatedData.splice(newIndex, 0, item)
+        setResume({ ...resume, education: updatedData })
+    }
+
+    const onItemAdded = () => {
+        const newId = getNextId(data)
+        const newEntry = createResumeEducationEntry(newId)
+        setResume({ ...resume, education: [...data, newEntry] })
     }
 
     return (
@@ -145,6 +162,8 @@ function EducationSection({ onEdit, onEditDone }) {
                     </>
                 )}
                 onItemEdited={onItemEdit}
+                onItemAdded={onItemAdded}
+                onItemOrderChanged={onItemOrderChanged}
             />
         </EditSection>
     )

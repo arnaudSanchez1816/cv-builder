@@ -3,6 +3,8 @@ import { EditForm, EditFormTextArea, EditFormInput } from "./EditForm"
 import EditSection from "./EditSection"
 import { useContext, useState } from "react"
 import { ResumeContext } from "../contexts/ResumeContext"
+import { createResumeProjectEntry } from "../data"
+import { getNextId } from "../utils"
 
 const sectionIcon = "mdi:folder-outline"
 
@@ -97,6 +99,20 @@ function ProjectsSection({ onEdit, onEditDone }) {
         )
     }
 
+    const onItemOrderChanged = (item, newIndex) => {
+        const updatedProjects = projects.filter(
+            (element) => element.id !== item.id
+        )
+        updatedProjects.splice(newIndex, 0, item)
+        setResume({ ...resume, projects: updatedProjects })
+    }
+
+    const onItemAdded = () => {
+        const newId = getNextId(projects)
+        const newEntry = createResumeProjectEntry(newId)
+        setResume({ ...resume, projects: [...projects, newEntry] })
+    }
+
     return (
         <EditSection sectionTitle="Projects" sectionIcon={sectionIcon}>
             <EditList
@@ -109,6 +125,8 @@ function ProjectsSection({ onEdit, onEditDone }) {
                     </>
                 )}
                 onItemEdited={onItemEdit}
+                onItemAdded={onItemAdded}
+                onItemOrderChanged={onItemOrderChanged}
             ></EditList>
         </EditSection>
     )

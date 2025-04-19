@@ -56,3 +56,35 @@ export const exampleResume = {
 export function createResume() {
     return { ...exampleResume }
 }
+
+export function createResumeProfessionalEntry(id) {
+    return {
+        id: id,
+        jobTitle: "Job title",
+        companyName: "Company name",
+        location: "Location",
+        startDate: "Start date",
+        endDate: "End date",
+        description: "",
+    }
+}
+
+export function createResumeEducationEntry(id) {
+    return {
+        id: id,
+        studyTitle: "Study title",
+        schoolName: "School name",
+        schoolLocation: "Location",
+        startOfStudyDate: "Start date",
+        endOfStudyDate: "End date",
+    }
+}
+
+export function createResumeProjectEntry(id) {
+    return {
+        id: id,
+        projectName: "Project name",
+        startDate: "Date",
+        description: "",
+    }
+}

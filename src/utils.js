@@ -9,3 +9,11 @@ export function mergeClassNames(...className) {
 
     return array.join(" ")
 }
+
+export function getNextId(dataArray) {
+    const maxId = dataArray.reduce(
+        (previous, current) => Math.max(previous, current.id),
+        -1
+    )
+    return maxId + 1
+}
