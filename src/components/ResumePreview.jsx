@@ -1,6 +1,5 @@
 import "../styles/ResumePreview.css"
 import ResumeHeader from "./ResumeHeader"
-import { exampleResume } from "../data"
 import ResumeSectionItem from "./ResumeSectionItem"
 import ResumeSection from "./ResumeSection"
 import { useContext } from "react"
@@ -56,13 +55,13 @@ function ProjectEntry({ entryData }) {
 }
 
 function ResumePreview({ ref }) {
-    const resume = useContext(ResumeContext)
+    const { resume } = useContext(ResumeContext)
 
     let professionalXp = null
     if (resume.professional && resume.professional.length > 0) {
         professionalXp = (
             <ResumeSection title="Professional Experience">
-                {exampleResume.professional.map((item) => (
+                {resume.professional.map((item) => (
                     <ProfessionalExperienceEntry
                         key={item.id}
                         entryData={item}
@@ -76,7 +75,7 @@ function ResumePreview({ ref }) {
     if (resume.education && resume.education.length > 0) {
         education = (
             <ResumeSection title="Education">
-                {exampleResume.education.map((item) => (
+                {resume.education.map((item) => (
                     <EducationEntry key={item.id} entryData={item} />
                 ))}
             </ResumeSection>
@@ -87,7 +86,7 @@ function ResumePreview({ ref }) {
     if (resume.projects && resume.projects.length > 0) {
         projects = (
             <ResumeSection title="Projects">
-                {exampleResume.projects.map((item) => (
+                {resume.projects.map((item) => (
                     <ProjectEntry key={item.id} entryData={item} />
                 ))}
             </ResumeSection>
@@ -97,11 +96,11 @@ function ResumePreview({ ref }) {
     return (
         <div className="resume-page" ref={ref}>
             <ResumeHeader
-                fullName={exampleResume.fullname}
-                jobTitle={exampleResume.jobTitle}
-                email={exampleResume.email}
-                phone={exampleResume.phone}
-                address={exampleResume.address}
+                fullName={resume.fullname}
+                jobTitle={resume.jobTitle}
+                email={resume.email}
+                phone={resume.phone}
+                address={resume.address}
             />
             <div className="resume-content">
                 {professionalXp}
