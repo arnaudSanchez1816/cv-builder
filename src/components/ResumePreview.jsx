@@ -3,6 +3,8 @@ import ResumeHeader from "./ResumeHeader"
 import { exampleResume } from "../data"
 import ResumeSectionItem from "./ResumeSectionItem"
 import ResumeSection from "./ResumeSection"
+import { useContext } from "react"
+import { ResumeContext } from "../contexts/ResumeContext"
 
 function ProfessionalExperienceEntry({ entryData }) {
     const { companyName, startDate, endDate, jobTitle, location, description } =
@@ -54,10 +56,10 @@ function ProjectEntry({ entryData }) {
 }
 
 function ResumePreview({ ref }) {
-    const resumeData = exampleResume
+    const resume = useContext(ResumeContext)
 
     let professionalXp = null
-    if (resumeData.professional && resumeData.professional.length > 0) {
+    if (resume.professional && resume.professional.length > 0) {
         professionalXp = (
             <ResumeSection title="Professional Experience">
                 {exampleResume.professional.map((item) => (
@@ -71,7 +73,7 @@ function ResumePreview({ ref }) {
     }
 
     let education = null
-    if (resumeData.education && resumeData.education.length > 0) {
+    if (resume.education && resume.education.length > 0) {
         education = (
             <ResumeSection title="Education">
                 {exampleResume.education.map((item) => (
@@ -82,7 +84,7 @@ function ResumePreview({ ref }) {
     }
 
     let projects = null
-    if (resumeData.projects && resumeData.projects.length > 0) {
+    if (resume.projects && resume.projects.length > 0) {
         projects = (
             <ResumeSection title="Projects">
                 {exampleResume.projects.map((item) => (

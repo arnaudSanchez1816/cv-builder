@@ -1,7 +1,8 @@
-import { exampleResume } from "../data"
 import EditList from "./EditList"
 import { EditForm, EditFormTextArea, EditFormInput } from "./EditForm"
 import EditSection from "./EditSection"
+import { useContext } from "react"
+import { ResumeContext } from "../contexts/ResumeContext"
 
 const sectionIcon = "mdi:folder-outline"
 
@@ -40,7 +41,7 @@ function ProjectsEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
 }
 
 function ProjectsSection({ onEdit, onEditDone }) {
-    const resumeData = exampleResume
+    const resume = useContext(ResumeContext)
 
     const onItemEdit = (item) => {
         const onSubmitEdit = () => {
@@ -64,7 +65,7 @@ function ProjectsSection({ onEdit, onEditDone }) {
         )
     }
 
-    const projects = resumeData.projects
+    const projects = resume.projects
     return (
         <EditSection sectionTitle="Projects" sectionIcon={sectionIcon}>
             <EditList

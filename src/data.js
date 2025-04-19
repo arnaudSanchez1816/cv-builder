@@ -52,3 +52,7 @@ export const exampleResume = {
         },
     ],
 }
+
+export function createResume() {
+    return { ...exampleResume }
+}

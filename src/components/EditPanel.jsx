@@ -7,7 +7,6 @@ import ProjectsSection from "./ProjectsSection"
 
 function EditPanel() {
     const [editedSection, setEditedSection] = useState(null)
-
     const onEditingDone = () => {
         setEditedSection(null)
     }

@@ -1,15 +1,14 @@
 import "../styles/PersonalDetailsSection.css"
 import { EditForm, EditFormInput } from "./EditForm"
 import EditSection from "./EditSection"
-import { exampleResume } from "../data"
 import { Icon } from "@iconify/react/dist/iconify.js"
 import EditButton from "./EditButton"
+import { useContext } from "react"
+import { ResumeContext } from "../contexts/ResumeContext"
 
 const sectionIcon = "material-symbols:id-card-outline-rounded"
 
-function PersonalDetailsEditSection({ onSubmit, onCancel }) {
-    const resumeData = exampleResume
-
+function PersonalDetailsEditSection({ resume, onSubmit, onCancel }) {
     return (
         <EditSection
             sectionTitle="Edit Personal details"
@@ -20,29 +19,29 @@ function PersonalDetailsEditSection({ onSubmit, onCancel }) {
                 <EditForm onSubmit={onSubmit} onCancel={onCancel}>
                     <EditFormInput
                         id="full-name"
-                        value={resumeData.fullname}
+                        value={resume.fullname}
                         label="Full name"
                     />
                     <EditFormInput
                         id="job-title"
-                        value={resumeData.jobTitle}
+                        value={resume.jobTitle}
                         label="Job title"
                     />
                     <EditFormInput
                         id="email"
-                        value={resumeData.email}
+                        value={resume.email}
                         label="Email"
                         options={{ recommended: true }}
                     />
                     <EditFormInput
                         id="phone"
-                        value={resumeData.phone}
+                        value={resume.phone}
                         label="Phone number"
                         options={{ recommended: true }}
                     />
                     <EditFormInput
                         id="address"
-                        value={resumeData.address}
+                        value={resume.address}
                         label="Address"
                         options={{ recommended: true }}
                     />
@@ -53,6 +52,8 @@ function PersonalDetailsEditSection({ onSubmit, onCancel }) {
 }
 
 function PersonalDetailsSection({ onEdit, onEditDone }) {
+    const resume = useContext(ResumeContext)
+
     const onEditDetails = () => {
         const onSubmitEdit = () => {
             onEditDone()
@@ -64,13 +65,12 @@ function PersonalDetailsSection({ onEdit, onEditDone }) {
 
         onEdit(
             <PersonalDetailsEditSection
+                resume={resume}
                 onCancel={onCancelEdit}
                 onSubmit={onSubmitEdit}
             />
         )
     }
-
-    const resumeData = exampleResume
 
     return (
         <EditSection
@@ -80,8 +80,8 @@ function PersonalDetailsSection({ onEdit, onEditDone }) {
         >
             <div className="personal-section-content preview">
                 <div className="group">
-                    <p className="fullname">{resumeData.fullname}</p>
-                    <p className="job-title">{resumeData.jobTitle}</p>
+                    <p className="fullname">{resume.fullname}</p>
+                    <p className="job-title">{resume.jobTitle}</p>
                 </div>
                 <div className="group">
                     <p className="flex align-i-center">
@@ -89,7 +89,7 @@ function PersonalDetailsSection({ onEdit, onEditDone }) {
                             className="text-[20px] mr-[0.5rem]"
                             icon="ic:round-email"
                         />
-                        {resumeData.email}
+                        {resume.email}
                     </p>
                     <p className="flex align-i-center">
                         <Icon
@@ -98,14 +98,14 @@ function PersonalDetailsSection({ onEdit, onEditDone }) {
                             strokeWidth="1"
                             stroke="currentcolor"
                         />
-                        {resumeData.phone}
+                        {resume.phone}
                     </p>
                     <p className="flex align-i-center">
                         <Icon
                             className="text-[20px] mr-[0.5rem]"
                             icon="mdi:location"
                         />
-                        {resumeData.address}
+                        {resume.address}
                     </p>
                 </div>
                 <EditButton onClick={onEditDetails} />

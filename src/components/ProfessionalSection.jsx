@@ -1,7 +1,8 @@
 import EditList from "./EditList"
 import EditSection from "./EditSection"
-import { exampleResume } from "../data"
 import { EditForm, EditFormInput } from "./EditForm"
+import { useContext } from "react"
+import { ResumeContext } from "../contexts/ResumeContext"
 
 const sectionIcon = "mdi:briefcase-outline"
 
@@ -50,7 +51,8 @@ function ProfessionalEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
 }
 
 function ProfessionalSection({ onEdit, onEditDone }) {
-    const data = exampleResume.professional
+    const resume = useContext(ResumeContext)
+    const data = resume.professional
 
     const onItemEdit = (item) => {
         const onSubmitEdit = () => {
