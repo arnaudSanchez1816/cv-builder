@@ -14,10 +14,7 @@ function EditSectionHeader({
     if (foldable) {
         return (
             <header className="edit-section-header">
-                <button
-                    className="section-foldout rounded-large rounded-bottom-none"
-                    onClick={onFoldoutClicked}
-                >
+                <button className="section-foldout" onClick={onFoldoutClicked}>
                     <span className="section-header-title">
                         <Icon
                             className="section-header-icon"
