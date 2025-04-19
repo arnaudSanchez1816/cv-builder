@@ -1,13 +1,18 @@
 import EditList from "./EditList"
 import EditSection from "./EditSection"
 import { EditForm, EditFormInput } from "./EditForm"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ResumeContext } from "../contexts/ResumeContext"
 
 const sectionIcon = "mdi:briefcase-outline"
 
 function ProfessionalEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
-    const { jobTitle, companyName, startDate, endDate, location } = entry
+    const [stateEntry, setStateEntry] = useState(entry)
+    const { jobTitle, companyName, startDate, endDate, location } = stateEntry
+
+    const onFormSubmitted = () => {
+        onSubmit(stateEntry)
+    }
 
     return (
         <EditSection
@@ -16,7 +21,7 @@ function ProfessionalEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
             options={{ showHeader: true, headerFoldable: false }}
         >
             <EditForm
-                onSubmit={onSubmit}
+                onSubmit={onFormSubmitted}
                 onCancel={onCancel}
                 onDelete={onDelete}
             >
@@ -24,26 +29,56 @@ function ProfessionalEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
                     id="entry-job-title"
                     value={jobTitle}
                     label="Job title"
+                    onChange={(e) => {
+                        setStateEntry({
+                            ...stateEntry,
+                            jobTitle: e.target.value,
+                        })
+                    }}
                 />
                 <EditFormInput
                     id="entry-company-name"
                     value={companyName}
                     label="Company name"
+                    onChange={(e) => {
+                        setStateEntry({
+                            ...stateEntry,
+                            companyName: e.target.value,
+                        })
+                    }}
                 />
                 <EditFormInput
                     id="entry-job-location"
                     value={location}
                     label="Job location"
+                    onChange={(e) => {
+                        setStateEntry({
+                            ...stateEntry,
+                            location: e.target.value,
+                        })
+                    }}
                 />
                 <EditFormInput
                     id="entry-job-start-date"
                     value={startDate}
                     label="Start of employment"
+                    onChange={(e) => {
+                        setStateEntry({
+                            ...stateEntry,
+                            startDate: e.target.value,
+                        })
+                    }}
                 />
                 <EditFormInput
                     id="entry-job-end-date"
                     value={endDate}
                     label="End of employment"
+                    onChange={(e) => {
+                        setStateEntry({
+                            ...stateEntry,
+                            endDate: e.target.value,
+                        })
+                    }}
                 />
             </EditForm>
         </EditSection>
@@ -55,7 +90,15 @@ function ProfessionalSection({ onEdit, onEditDone }) {
     const data = resume.professional
 
     const onItemEdit = (item) => {
-        const onSubmitEdit = () => {
+        const onSubmitEdit = (updatedItem) => {
+            const updatedData = data.map((mapItem) => {
+                if (mapItem.id === updatedItem.id) {
+                    return updatedItem
+                }
+
+                return mapItem
+            })
+            setResume({ ...resume, professional: updatedData })
             onEditDone()
         }
 

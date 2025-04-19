@@ -1,19 +1,24 @@
 import EditSection from "./EditSection"
 import EditList from "./EditList"
 import { EditForm, EditFormInput } from "./EditForm"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ResumeContext } from "../contexts/ResumeContext"
 
 const sectionIcon = "mdi:education-outline"
 
 function EducationEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
+    const [stateEntry, setStateEntry] = useState(entry)
     const {
         studyTitle,
         schoolName,
         startOfStudyDate,
         endOfStudyDate,
         schoolLocation,
-    } = entry
+    } = stateEntry
+
+    const onFormSubmitted = () => {
+        onSubmit(stateEntry)
+    }
 
     return (
         <EditSection
@@ -22,7 +27,7 @@ function EducationEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
             options={{ showHeader: true, headerFoldable: false }}
         >
             <EditForm
-                onSubmit={onSubmit}
+                onSubmit={onFormSubmitted}
                 onCancel={onCancel}
                 onDelete={onDelete}
             >
@@ -30,26 +35,56 @@ function EducationEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
                     id="entry-study-title"
                     value={studyTitle}
                     label="Study title"
+                    onChange={(e) =>
+                        setStateEntry({
+                            ...stateEntry,
+                            studyTitle: e.target.value,
+                        })
+                    }
                 />
                 <EditFormInput
                     id="entry-school-name"
                     value={schoolName}
                     label="School name"
+                    onChange={(e) =>
+                        setStateEntry({
+                            ...stateEntry,
+                            schoolName: e.target.value,
+                        })
+                    }
                 />
                 <EditFormInput
                     id="entry-school-location"
                     value={schoolLocation}
                     label="School location"
+                    onChange={(e) =>
+                        setStateEntry({
+                            ...stateEntry,
+                            schoolLocation: e.target.value,
+                        })
+                    }
                 />
                 <EditFormInput
                     id="entry-start-study"
                     value={startOfStudyDate}
                     label="Start of study"
+                    onChange={(e) =>
+                        setStateEntry({
+                            ...stateEntry,
+                            startOfStudyDate: e.target.value,
+                        })
+                    }
                 />
                 <EditFormInput
                     id="entry-end-study"
                     value={endOfStudyDate}
                     label="End of study"
+                    onChange={(e) =>
+                        setStateEntry({
+                            ...stateEntry,
+                            endOfStudyDate: e.target.value,
+                        })
+                    }
                 />
             </EditForm>
         </EditSection>
@@ -61,7 +96,15 @@ function EducationSection({ onEdit, onEditDone }) {
     const data = resume.education
 
     const onItemEdit = (item) => {
-        const onSubmitEdit = () => {
+        const onSubmitEdit = (updatedItem) => {
+            const educationData = data.map((mapItem) => {
+                if (mapItem.id === updatedItem.id) {
+                    return updatedItem
+                }
+
+                return mapItem
+            })
+            setResume({ ...resume, education: educationData })
             onEditDone()
         }
 

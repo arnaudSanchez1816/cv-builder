@@ -1,13 +1,18 @@
 import EditList from "./EditList"
 import { EditForm, EditFormTextArea, EditFormInput } from "./EditForm"
 import EditSection from "./EditSection"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ResumeContext } from "../contexts/ResumeContext"
 
 const sectionIcon = "mdi:folder-outline"
 
 function ProjectsEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
-    const { projectName, startDate, description } = entry
+    const [stateEntry, setStateEntry] = useState(entry)
+    const { projectName, startDate, description } = stateEntry
+
+    const onFormSubmitted = () => {
+        onSubmit(stateEntry)
+    }
 
     return (
         <EditSection
@@ -16,7 +21,7 @@ function ProjectsEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
             options={{ showHeader: true, headerFoldable: false }}
         >
             <EditForm
-                onSubmit={onSubmit}
+                onSubmit={onFormSubmitted}
                 onCancel={onCancel}
                 onDelete={onDelete}
             >
@@ -24,16 +29,34 @@ function ProjectsEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
                     id="entry-project-name"
                     value={projectName}
                     label="Name"
+                    onChange={(e) => {
+                        setStateEntry({
+                            ...stateEntry,
+                            projectName: e.target.value,
+                        })
+                    }}
                 />
                 <EditFormInput
                     id="entry-project-date"
                     value={startDate}
                     label="Date"
+                    onChange={(e) => {
+                        setStateEntry({
+                            ...stateEntry,
+                            startDate: e.target.value,
+                        })
+                    }}
                 />
                 <EditFormTextArea
                     id="entry-project-description"
                     value={description}
                     label="Description"
+                    onChange={(e) => {
+                        setStateEntry({
+                            ...stateEntry,
+                            description: e.target.value,
+                        })
+                    }}
                 />
             </EditForm>
         </EditSection>
@@ -42,9 +65,18 @@ function ProjectsEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
 
 function ProjectsSection({ onEdit, onEditDone }) {
     const { resume, setResume } = useContext(ResumeContext)
+    const projects = resume.projects
 
     const onItemEdit = (item) => {
-        const onSubmitEdit = () => {
+        const onSubmitEdit = (updatedItem) => {
+            const updatedProjects = projects.map((mapItem) => {
+                if (mapItem.id === updatedItem.id) {
+                    return updatedItem
+                }
+
+                return mapItem
+            })
+            setResume({ ...resume, projects: updatedProjects })
             onEditDone()
         }
 
@@ -65,7 +97,6 @@ function ProjectsSection({ onEdit, onEditDone }) {
         )
     }
 
-    const projects = resume.projects
     return (
         <EditSection sectionTitle="Projects" sectionIcon={sectionIcon}>
             <EditList
