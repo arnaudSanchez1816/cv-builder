@@ -27,7 +27,7 @@ function EditSectionHeader({
                     </span>
                     <Icon
                         className="section-foldout-chevron"
-                        icon={isFolded ? CHEVRON_UP_ICON : CHEVRON_DOWN_ICON}
+                        icon={isFolded ? CHEVRON_DOWN_ICON : CHEVRON_UP_ICON}
                     ></Icon>
                 </button>
             </header>
