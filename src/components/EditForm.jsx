@@ -11,6 +11,7 @@ function EditFormInput({
     id,
     value,
     label,
+    onChange,
     options = EditFormInputDefaultOptions,
 }) {
     options = { ...EditFormInputDefaultOptions, ...options }
@@ -38,6 +39,7 @@ function EditFormInput({
                 type={options.type}
                 value={value}
                 className="rounded-medium"
+                onChange={onChange}
             />
         </div>
     )
@@ -52,6 +54,7 @@ function EditFormTextArea({
     id,
     value,
     label,
+    onChange,
     options = EditFormTextAreaDefaultOptions,
 }) {
     options = { ...EditFormTextAreaDefaultOptions, ...options }
@@ -78,6 +81,7 @@ function EditFormTextArea({
                 name={options.htmlName ? options.htmlName : id}
                 value={value}
                 className="rounded-medium"
+                onChange={onChange}
             />
         </div>
     )
