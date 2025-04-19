@@ -1,5 +1,5 @@
 import { exampleResume } from "../data"
-import DetailsEditList from "./DetailsEditList"
+import EditList from "./EditList"
 import { EditForm, EditFormTextArea, EditFormInput } from "./EditForm"
 import EditSection from "./EditSection"
 
@@ -67,7 +67,7 @@ function ProjectsSection({ onEdit, onEditDone }) {
     const projects = resumeData.projects
     return (
         <EditSection sectionTitle="Projects" sectionIcon={sectionIcon}>
-            <DetailsEditList
+            <EditList
                 dataSource={projects}
                 itemRender={(item) => (
                     <>
@@ -77,7 +77,7 @@ function ProjectsSection({ onEdit, onEditDone }) {
                     </>
                 )}
                 onItemEdited={onItemEdit}
-            ></DetailsEditList>
+            ></EditList>
         </EditSection>
     )
 }

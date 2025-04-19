@@ -1,6 +1,5 @@
 import EditSection from "./EditSection"
-import "../styles/EducationDetailsEditSection.css"
-import DetailsEditList from "./DetailsEditList"
+import EditList from "./EditList"
 import { exampleResume } from "../data"
 import { EditForm, EditFormInput } from "./EditForm"
 
@@ -83,7 +82,7 @@ function EducationSection({ onEdit, onEditDone }) {
 
     return (
         <EditSection sectionTitle="Education" sectionIcon={sectionIcon}>
-            <DetailsEditList
+            <EditList
                 dataSource={data}
                 itemRender={(item) => (
                     <>

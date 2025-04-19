@@ -1,4 +1,4 @@
-import "../styles/PersonalDetailsEditSection.css"
+import "../styles/PersonalDetailsSection.css"
 import { EditForm, EditFormInput } from "./EditForm"
 import EditSection from "./EditSection"
 import { exampleResume } from "../data"

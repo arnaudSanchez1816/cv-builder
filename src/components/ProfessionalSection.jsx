@@ -1,4 +1,4 @@
-import DetailsEditList from "./DetailsEditList"
+import EditList from "./EditList"
 import EditSection from "./EditSection"
 import { exampleResume } from "../data"
 import { EditForm, EditFormInput } from "./EditForm"
@@ -79,7 +79,7 @@ function ProfessionalSection({ onEdit, onEditDone }) {
             sectionTitle="Professional experience"
             sectionIcon={sectionIcon}
         >
-            <DetailsEditList
+            <EditList
                 dataSource={data}
                 itemRender={(item) => (
                     <>

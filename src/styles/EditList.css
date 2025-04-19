@@ -10,11 +10,13 @@
 
 .edit-item {
     background-color: #fff;
-    display: grid;
-    grid-template-columns: 20px auto min-content;
-    grid-template-rows: 1fr;
+    display: flex;
     padding: 1rem 0;
     gap: 1rem;
+}
+
+.item-reorder {
+    width: 20px;
 }
 
 .item-up,
