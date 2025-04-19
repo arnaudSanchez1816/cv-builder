@@ -51,7 +51,7 @@ function ProfessionalEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
 }
 
 function ProfessionalSection({ onEdit, onEditDone }) {
-    const resume = useContext(ResumeContext)
+    const { resume, setResume } = useContext(ResumeContext)
     const data = resume.professional
 
     const onItemEdit = (item) => {

@@ -41,7 +41,7 @@ function ProjectsEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
 }
 
 function ProjectsSection({ onEdit, onEditDone }) {
-    const resume = useContext(ResumeContext)
+    const { resume, setResume } = useContext(ResumeContext)
 
     const onItemEdit = (item) => {
         const onSubmitEdit = () => {

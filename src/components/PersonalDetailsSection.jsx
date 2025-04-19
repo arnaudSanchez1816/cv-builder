@@ -3,12 +3,22 @@ import { EditForm, EditFormInput } from "./EditForm"
 import EditSection from "./EditSection"
 import { Icon } from "@iconify/react/dist/iconify.js"
 import EditButton from "./EditButton"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ResumeContext } from "../contexts/ResumeContext"
 
 const sectionIcon = "material-symbols:id-card-outline-rounded"
 
-function PersonalDetailsEditSection({ resume, onSubmit, onCancel }) {
+function PersonalDetailsEditSection({
+    personalDetailsValue,
+    onSubmit,
+    onCancel,
+}) {
+    const [personalDetails, setPersonalDetails] = useState(personalDetailsValue)
+
+    const onFormSubmitted = () => {
+        onSubmit(personalDetails)
+    }
+
     return (
         <EditSection
             sectionTitle="Edit Personal details"
@@ -16,34 +26,64 @@ function PersonalDetailsEditSection({ resume, onSubmit, onCancel }) {
             options={{ showHeader: true, headerFoldable: false }}
         >
             <div className="personal-section-content">
-                <EditForm onSubmit={onSubmit} onCancel={onCancel}>
+                <EditForm onSubmit={onFormSubmitted} onCancel={onCancel}>
                     <EditFormInput
                         id="full-name"
-                        value={resume.fullname}
+                        value={personalDetails.fullname}
                         label="Full name"
+                        onChange={(e) => {
+                            setPersonalDetails({
+                                ...personalDetails,
+                                fullname: e.target.value,
+                            })
+                        }}
                     />
                     <EditFormInput
                         id="job-title"
-                        value={resume.jobTitle}
+                        value={personalDetails.jobTitle}
                         label="Job title"
+                        onChange={(e) => {
+                            setPersonalDetails({
+                                ...personalDetails,
+                                jobTitle: e.target.value,
+                            })
+                        }}
                     />
                     <EditFormInput
                         id="email"
-                        value={resume.email}
+                        value={personalDetails.email}
                         label="Email"
                         options={{ recommended: true }}
+                        onChange={(e) => {
+                            setPersonalDetails({
+                                ...personalDetails,
+                                email: e.target.value,
+                            })
+                        }}
                     />
                     <EditFormInput
                         id="phone"
-                        value={resume.phone}
+                        value={personalDetails.phone}
                         label="Phone number"
                         options={{ recommended: true }}
+                        onChange={(e) => {
+                            setPersonalDetails({
+                                ...personalDetails,
+                                phone: e.target.value,
+                            })
+                        }}
                     />
                     <EditFormInput
                         id="address"
-                        value={resume.address}
+                        value={personalDetails.address}
                         label="Address"
                         options={{ recommended: true }}
+                        onChange={(e) => {
+                            setPersonalDetails({
+                                ...personalDetails,
+                                address: e.target.value,
+                            })
+                        }}
                     />
                 </EditForm>
             </div>
@@ -52,10 +92,11 @@ function PersonalDetailsEditSection({ resume, onSubmit, onCancel }) {
 }
 
 function PersonalDetailsSection({ onEdit, onEditDone }) {
-    const resume = useContext(ResumeContext)
+    const { resume, setResume } = useContext(ResumeContext)
 
     const onEditDetails = () => {
-        const onSubmitEdit = () => {
+        const onSubmitEdit = (personalDetails) => {
+            setResume({ ...resume, ...personalDetails })
             onEditDone()
         }
 
@@ -63,9 +104,17 @@ function PersonalDetailsSection({ onEdit, onEditDone }) {
             onEditDone()
         }
 
+        const personalDetails = {
+            fullname: resume.fullname,
+            jobTitle: resume.jobTitle,
+            email: resume.email,
+            phone: resume.phone,
+            address: resume.address,
+        }
+
         onEdit(
             <PersonalDetailsEditSection
-                resume={resume}
+                personalDetailsValue={personalDetails}
                 onCancel={onCancelEdit}
                 onSubmit={onSubmitEdit}
             />

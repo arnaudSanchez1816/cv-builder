@@ -12,12 +12,12 @@ function App() {
         nav: new Navigation(MODE_EDIT),
     })
 
-    const resume = createResume()
+    const [resume, setResume] = useState(createResume())
 
     const navMode = navigation.nav.mode
     return (
         <div className="app">
-            <ResumeContext value={resume}>
+            <ResumeContext value={{ resume, setResume }}>
                 <Sidebar
                     onDetailsModeClicked={() => {
                         const nav = navigation.nav

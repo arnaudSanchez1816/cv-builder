@@ -57,7 +57,7 @@ function EducationEditEntrySection({ entry, onSubmit, onCancel, onDelete }) {
 }
 
 function EducationSection({ onEdit, onEditDone }) {
-    const resume = useContext(ResumeContext)
+    const { resume, setResume } = useContext(ResumeContext)
     const data = resume.education
 
     const onItemEdit = (item) => {
