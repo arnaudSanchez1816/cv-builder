@@ -3,7 +3,12 @@ import EditPanelModeButton from "./EditPanelModeButton"
 import "../styles/Sidebar.css"
 import { MODE_CUSTOMIZE, MODE_EDIT } from "../navigation"
 
-function Sidebar({ activeMode, onDetailsModeClicked, onCustomizeModeClicked }) {
+function Sidebar({
+    activeMode,
+    onDetailsModeClicked,
+    onCustomizeModeClicked,
+    onPreviewClicked,
+}) {
     return (
         <aside className="sidebar">
             <div className="sidebar-container">
@@ -24,7 +29,10 @@ function Sidebar({ activeMode, onDetailsModeClicked, onCustomizeModeClicked }) {
                         isActive={activeMode === MODE_CUSTOMIZE}
                     />
                 </div>
-                <button className="open-preview-modal primary-color-button">
+                <button
+                    className="open-preview-modal primary-color-button"
+                    onClick={onPreviewClicked}
+                >
                     <Icon icon="mdi:eye-outline" />
                 </button>
             </div>

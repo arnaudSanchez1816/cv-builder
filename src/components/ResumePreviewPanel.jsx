@@ -1,12 +1,8 @@
 import "../styles/ResumePreviewPanel.css"
-import { useEffect, useRef, useState } from "react"
-import { Icon } from "@iconify/react/dist/iconify.js"
+import { useEffect, useRef } from "react"
 import ResumePreview from "./ResumePreview"
-import Modal from "./Modal"
 
-function ResumePreviewPanel() {
-    const [showResumeModal, setShowResumeModal] = useState(false)
-
+function ResumePreviewPanel({ onShowResumeModal }) {
     const resumePreviewRef = useRef(null)
     const pageRef = useRef(null)
     const scalerRef = useRef(null)
@@ -67,20 +63,15 @@ function ResumePreviewPanel() {
     })
 
     const onPreviewClick = () => {
-        setShowResumeModal(true)
+        onShowResumeModal()
     }
-
-    const onResumeModalClose = () => {
-        setShowResumeModal(false)
-    }
-
     return (
         <>
-            <div className="resume-preview" ref={resumePreviewRef}>
+            <div className={"resume-preview"} ref={resumePreviewRef}>
                 <div
                     ref={resizableRef}
                     onClick={onPreviewClick}
-                    style={{ cursor: "zoom-in" }}
+                    style={onShowResumeModal && { cursor: "zoom-in" }}
                 >
                     <div
                         style={{ transformOrigin: "top left" }}
@@ -90,25 +81,6 @@ function ResumePreviewPanel() {
                     </div>
                 </div>
             </div>
-            {showResumeModal && (
-                <Modal
-                    isOpen={showResumeModal}
-                    onClose={onResumeModalClose}
-                    className="resume-modal"
-                >
-                    <div className="resume-modal-overflow">
-                        <ResumePreview />
-                    </div>
-                    <button
-                        autoFocus
-                        type="button"
-                        class="resume-modal-close"
-                        onClick={onResumeModalClose}
-                    >
-                        <Icon icon="mdi:close" />
-                    </button>
-                </Modal>
-            )}
         </>
     )
 }
