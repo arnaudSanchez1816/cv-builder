@@ -2,6 +2,7 @@
     --edit-button-width: 32px;
     --edit-button-height: 32px;
 
+    flex-shrink: 0;
     border: none;
     background-color: var(--color-primary-blue);
     font-size: 20px;
