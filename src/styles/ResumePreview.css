@@ -1,7 +1,4 @@
 .resume-page {
-    --resume-accent-color: #218c74;
-    --resume-header-color: #fff;
-
     background-color: #fff;
     width: 21cm;
     max-width: 21cm;
@@ -9,9 +6,22 @@
     height: 29.7cm;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: minmax(200px, min-content) auto;
-    grid-template-areas:
-        "header"
-        "content";
     overflow: hidden;
+
+    &.top {
+        grid-template-rows: minmax(200px, min-content) auto;
+        grid-template-areas:
+            "header"
+            "content";
+    }
+
+    &.left {
+        grid-template-columns: 45% 55%;
+        grid-template-areas: "header content";
+    }
+
+    &.right {
+        grid-template-columns: 55% 45%;
+        grid-template-areas: "content header";
+    }
 }

@@ -10,7 +10,7 @@ function ResumeSectionItem({
 }) {
     return (
         <div className="resume-section-item">
-            <div className="group pr-[1rem]">
+            <div className="group">
                 <div>
                     {startDate && startDate}
                     {endDate && " - "}

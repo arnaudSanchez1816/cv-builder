@@ -20,6 +20,9 @@
     --color-primary-blue: #0a3d62;
     --color-primary-blue-lighter: #4a69bd;
     --color-primary-blue-light: #6a89cc;
+
+    --resume-accent-color: #218c74;
+    --resume-text-accent-color: #ffffff;
 }
 
 #root {
@@ -53,6 +56,10 @@
 
 .text-\[0\.8em\] {
     font-size: 0.8em;
+}
+
+.text-\[1\.3em\] {
+    font-size: 1.3em;
 }
 
 .italic {

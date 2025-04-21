@@ -56,6 +56,7 @@ function ProjectEntry({ entryData }) {
 
 function ResumePreview({ ref }) {
     const { resume } = useContext(ResumeContext)
+    const customization = resume.customization
 
     let professionalXp = null
     if (resume.professional && resume.professional.length > 0) {
@@ -94,7 +95,7 @@ function ResumePreview({ ref }) {
     }
 
     return (
-        <div className="resume-page" ref={ref}>
+        <div className={`resume-page ${customization.layout}`} ref={ref}>
             <ResumeHeader
                 fullName={resume.fullname}
                 jobTitle={resume.jobTitle}

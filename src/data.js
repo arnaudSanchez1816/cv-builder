@@ -1,3 +1,9 @@
+const RESUME_LAYOUT_TOP = "top"
+const RESUME_LAYOUT_LEFT = "left"
+const RESUME_LAYOUT_RIGHT = "right"
+
+export { RESUME_LAYOUT_TOP, RESUME_LAYOUT_LEFT, RESUME_LAYOUT_RIGHT }
+
 export const exampleResume = {
     fullname: "Arnaud Sanchez",
     jobTitle: "Dev Full Stack",
@@ -51,6 +57,11 @@ export const exampleResume = {
                 "Resume generation app.\nAllows you to build and customize your resume.",
         },
     ],
+    customization: {
+        layout: RESUME_LAYOUT_TOP,
+        accentColor: "#218c74",
+        textAccentColor: "#ffffff",
+    },
 }
 
 export function createResume() {

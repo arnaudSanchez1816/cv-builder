@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Navigation, MODE_EDIT, MODE_CUSTOMIZE } from "./navigation"
 import { createResume } from "./data"
 import { ResumeContext } from "./contexts/ResumeContext"
+import CustomizationPanel from "./components/CustomizationPanel"
 
 function App() {
     const [navigation, setNavigation] = useState({
@@ -32,7 +33,7 @@ function App() {
                     activeMode={navMode}
                 />
                 {navMode === MODE_EDIT && <EditPanel />}
-                {navMode === MODE_CUSTOMIZE && <div> </div>}
+                {navMode === MODE_CUSTOMIZE && <CustomizationPanel />}
                 <ResumePreviewPanel />
             </ResumeContext>
         </div>

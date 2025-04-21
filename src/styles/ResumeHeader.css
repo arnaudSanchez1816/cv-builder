@@ -1,12 +1,18 @@
 .resume-header {
     grid-area: header;
     background-color: var(--resume-accent-color);
-    color: var(--resume-header-color);
+    color: var(--resume-text-accent-color);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 3rem 2rem;
+}
+
+.resume-page.top .resume-header {
     justify-content: center;
-    gap: 0.5rem;
+    align-items: center;
+    padding: 1.5rem;
 }
 
 .resume-header .fullname {
@@ -14,11 +20,18 @@
 }
 
 .resume-header .job-title {
-    margin: 0;
+    margin: 0.5rem 0 1.5rem;
+}
+.resume-page.top .job-title {
+    margin: 0.5rem 0;
 }
 
 .resume-header-details {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     gap: 1rem;
+}
+
+.resume-page.top .resume-header-details {
+    flex-flow: row nowrap;
 }
