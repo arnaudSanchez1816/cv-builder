@@ -13,9 +13,15 @@ function Sidebar({
         <aside className="sidebar">
             <div className="sidebar-container">
                 <div className="sidebar-content">
-                    <div className="sidebar-app-logo">
+                    <a
+                        href="https://github.com/arnaudSanchez1816/cv-builder"
+                        target="_blank"
+                        title="Source code"
+                        rel="noopener noreferrer"
+                        className="sidebar-app-logo"
+                    >
                         <Icon icon="academicons:cv-square" />
-                    </div>
+                    </a>
                     <EditPanelModeButton
                         text="Details"
                         iconId="mage:file-2"
